@@ -1,0 +1,108 @@
+@import "variables.less";
+
+body, html {
+  font-family: 'VT323';
+  font-family: 'Press Start 2P';
+  padding: 0;
+  margin: 0;
+  background: black;
+  overflow: hidden;
+}
+
+body {
+  perspective: 900px;
+}
+
+canvas {
+  display: none;
+}
+
+.laps {
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+
+  .lap-wrapper {
+
+    display: inline-block;
+
+    .lap-count {
+      font-size: 65px;
+      margin-bottom:10px;
+    }
+    .lap-time {
+      font-size: 20px;
+    }
+    .lap-time-wrapper {
+      margin-bottom: 10px;
+    }
+
+  }
+
+
+}
+
+
+.track-wrapper {
+  transform-style: preserve-3d;
+}
+
+.track {
+  margin: 0px auto 0 auto;
+  background-size: 100%;
+  image-rendering: pixelated;
+  transform-style: preserve-3d;
+
+}
+
+.car {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform-style: preserve-3d;
+
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   height: 800%;
+  //   width: 100%;
+  //   background: inherit;
+  //   opacity: .3;
+  // }
+
+
+  &[mode=under] {
+    opacity: .3;
+  }
+
+}
+
+.one {
+  background: white;
+}
+
+.two {
+  background: orange;
+}
+
+.trackPop {
+  animation-name: trackpop;
+  animation-duration:  .2s;
+  iteration-count: 1;
+  animation-delay: 0;
+}
+
+@keyframes trackpop {
+  0% {
+    transform: scale(1);
+  }
+  20%{
+    transform: scale(1.03);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
